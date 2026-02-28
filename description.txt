@@ -1,0 +1,69 @@
+TITLE:
+A Machine Learning–Based Assistant for Image Recognition–Guided Waste Segregation
+
+
+ALGORITHM USED:
+Convolutional Neural Network (CNN)
+
+
+OVERVIEW:
+The proposed system is a machine learning–based assistant designed to recognize images of waste materials and guide users in proper waste segregation. The system utilizes image processing techniques combined with a Convolutional Neural Network (CNN) to simulate how the human brain processes visual information. Images captured through a camera are processed, analyzed, and classified into different waste categories in real time.
+
+
+IMAGE PROCESSING TECHNIQUES USED:
+
+1. Image Acquisition
+The system captures real-time images using a webcam through OpenCV. This serves as the primary input of the system and functions similarly to the human eye by collecting raw visual data.
+
+2. Image Resizing
+Captured images are resized to a fixed dimension of 128×128 pixels. This ensures uniform input size for the CNN model and reduces computational complexity.
+
+3. Image Normalization
+Pixel values of the images are normalized by scaling them from 0–255 to a range of 0–1. This improves numerical stability and enhances the learning performance of the neural network.
+
+4. Grayscale Conversion
+The captured image is converted from RGB to grayscale. This simplifies the image data and reduces noise, making subsequent image processing steps more effective.
+
+5. Gaussian Blurring
+Gaussian blur is applied to the grayscale image to reduce noise and smoothen the image. This step helps improve edge detection by removing unnecessary details.
+
+6. Edge Detection (Canny Algorithm)
+The Canny edge detection algorithm is used to detect object boundaries within the image. This highlights the edges of waste objects and helps in locating them accurately.
+
+7. Morphological Operations
+Dilation and erosion operations are applied to strengthen detected edges and eliminate small noise. These operations improve the clarity of object shapes.
+
+8. Contour Detection
+Contours are extracted from the processed image to identify the shape and location of the waste object. The largest contour is assumed to be the main object of interest.
+
+9. Region of Interest (ROI) Extraction
+A bounding box is drawn around the detected object, and the region inside the box is cropped. This region of interest is passed to the CNN for classification, allowing the model to focus only on the object and not the background.
+
+10. Data Augmentation (Training Phase)
+During training, data augmentation techniques such as rotation, zooming, and horizontal flipping are applied. These techniques increase dataset diversity and improve the model’s ability to generalize to real-world conditions.
+
+
+CONVOLUTIONAL NEURAL NETWORK (CNN) DESCRIPTION:
+
+The CNN consists of multiple convolutional layers followed by pooling layers that extract hierarchical features such as edges, textures, and shapes from the input images. These layers simulate the function of the human visual cortex. The extracted features are flattened and passed to fully connected layers that perform classification. A softmax activation function is used in the final layer to produce class probabilities for different waste categories.
+
+
+HOW THE SYSTEM WORKS (INPUT–PROCESS–OUTPUT):
+
+Input:
+Real-time image of waste captured by a camera.
+
+Process:
+The image undergoes preprocessing and image processing techniques, followed by feature extraction and classification using a CNN.
+
+Output:
+The system displays the identified waste category along with a confidence score, guiding the user in proper waste segregation.
+
+
+CONNECTION TO “THE ALGORITHM IS THE BRAIN”:
+
+The system mimics human visual perception by treating the camera as the eye, image processing as early visual processing, and the CNN as the brain that interprets visual information and makes decisions. This brain-inspired approach enables accurate and intelligent waste classification.
+
+
+CONCLUSION:
+The developed system successfully integrates image processing techniques and a Convolutional Neural Network to create an intelligent assistant for image recognition–guided waste segregation. The approach satisfies the requirements of the activity by demonstrating how algorithms can function similarly to the human brain in solving real-world problems.
