@@ -49,13 +49,13 @@ num_classes = train_data.num_classes
 # ===============================
 model = Sequential([
     Conv2D(32, (3,3), activation="relu", input_shape=(IMG_SIZE, IMG_SIZE, 3)),
-    MaxPooling2D(2,2),
+    MaxPooling2D(2,2), #edgs and lines
 
     Conv2D(64, (3,3), activation="relu"),
-    MaxPooling2D(2,2),
+    MaxPooling2D(2,2), #textures and patterns
 
     Conv2D(128, (3,3), activation="relu"),
-    MaxPooling2D(2,2),
+    MaxPooling2D(2,2), #complex features and shapes
 
     Flatten(),
     Dense(256, activation="relu"),

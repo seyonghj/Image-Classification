@@ -40,7 +40,7 @@ while True:
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(gray, (7, 7), 0)
 
-    edges = cv2.Canny(blur, 50, 150)
+    edges = cv2.Canny(blur, 70, 200)
 
     kernel = np.ones((5, 5), np.uint8)
     edges = cv2.dilate(edges, kernel, iterations=2)
